@@ -70,17 +70,16 @@
         }
       } else {
         // Optimised code here
-   console.log(window.getComputedStyle())
-        let a=m.getBoundingClientRect().top;
-        let b=m.getBoundingClientRect().left;
-        var top = m.classList.contains('down') ? m.getBoundingClientRect().top+window.pageYOffset+ distance :m.getBoundingClientRect().top+window.pageYOffset- distance;
-        var left = m.classList.contains('right') ? m.getBoundingClientRect().left+window.pageXOffset+ distance : m.getBoundingClientRect().left+window.pageXOffset - distance;
+        let a=parseInt(m.style.top);
+        let b=parseInt(m.style.left);
+        var top = m.classList.contains('down') ? parseInt(m.style.top)+ distance :parseInt(m.style.top)- distance;
+        var left = m.classList.contains('right') ? parseInt(m.style.left)+ distance : parseInt(m.style.left) - distance;
         if (top < 0) top = 0;
         if (top > maxHeight) top = maxHeight;
         m.style.top = top + 'px';
         if (left < 0) left = 0;
         if (left > maxWidth) left = maxWidth;
-        m.style.left = left + 'px';
+        m.style.left =left + 'px';
         if ( a === 0) {
           m.classList.remove('up');
           m.classList.add('down');
